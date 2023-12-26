@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PokemonItemComponent } from './Components/pokemon-item.component';
 import { PokemonListComponent } from './Components/pokemon-list/pokemon-list.component';
 import { HighlightBackgroundColorDirective } from './directives/highlight-background-color.directive';
+import { ToastsContainer } from "./Components/toast-service/toasts-container.component";
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import { HighlightBackgroundColorDirective } from './directives/highlight-backgr
         BrowserModule,
         FormsModule,
         AppRoutingModule,
-        NgbModule
+        NgbModule,
+        ToastsContainer
     ]
 })
 export class AppModule { }

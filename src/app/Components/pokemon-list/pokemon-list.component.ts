@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef, inject } from '@angular/core';
+import { ToastService } from '../toast-service/toast-service';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './pokemon-list.component.scss'
 })
 export class PokemonListComponent {
+  toastService = inject(ToastService);
   canClickButton = false;
   currentPokemonName = '';  
   pokemonAdded = false;
@@ -15,6 +17,8 @@ export class PokemonListComponent {
   onAddButtonClick(){
     this.pokemonAdded = true;
     this.pokemons.push(this.currentPokemonName);
+    const toastText = "Le Pokemon " + this.currentPokemonName + " a été ajouté";
+    this.toastService.show({ toastText, classname: 'bg-info text-muted', delay: 10000000000 });
   }
 
   onPokemonChange(event:Event){
@@ -31,5 +35,7 @@ export class PokemonListComponent {
   onDeletePokemon(name:string, index: number){
     this.pokemons.splice(index,1);
     this.deletedPokemonName = name;
+    const toastText = "Le Pokemon " + this.deletedPokemonName + " a été supprimé";
+    this.toastService.show({ toastText, classname: 'bg-warning text-muted', delay: 100000000000 });
   }
 }
