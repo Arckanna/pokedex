@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
 })
 export class PokemonListComponent {
   canClickButton = false;
-  currentPokemonName = 'carapuce';
-  notificationText = '';
+  currentPokemonName = '';  
   pokemonAdded = false;
-  pokemons: string[] = ['carapuce','dracofeu','salameche','pikachu'];
+  pokemons: string[] = [];
+  deletedPokemonName?: string;
 
   onAddButtonClick(){
     this.pokemonAdded = true;
@@ -27,5 +27,9 @@ export class PokemonListComponent {
     setTimeout(()=>{
       this.canClickButton = true;
     }, 2000);
+  }
+  onDeletePokemon(name:string, index: number){
+    this.pokemons.splice(index,1);
+    this.deletedPokemonName = name;
   }
 }
