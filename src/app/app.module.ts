@@ -10,19 +10,19 @@ import { PokemonListComponent } from './Components/pokemon-list/pokemon-list.com
 import { HighlightBackgroundColorDirective } from './directives/highlight-background-color.directive';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PokemonItemComponent,
-    PokemonListComponent,
-    HighlightBackgroundColorDirective
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule,
-    NgbModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        PokemonItemComponent,
+        PokemonListComponent,
+        HighlightBackgroundColorDirective
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        AppRoutingModule,
+        NgbModule
+    ]
 })
 export class AppModule { }

@@ -20,14 +20,14 @@ export class PokemonListComponent {
   onPokemonChange(event:Event){
     console.log('change');
     const inputElement = event.target as HTMLInputElement;
-    this.currentPokemonName = inputElement?.value;
-
-  }
-  constructor() {
-    setTimeout(()=>{
+    this.currentPokemonName = inputElement?.value.trim();
+    if(this.currentPokemonName != ""){
       this.canClickButton = true;
-    }, 2000);
+    } else {
+      this.canClickButton = false;
+    }
   }
+
   onDeletePokemon(name:string, index: number){
     this.pokemons.splice(index,1);
     this.deletedPokemonName = name;
