@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
-import { Pokemon, PokemonServiceService } from '../services/pokemon-service.service';
-import { ToastService } from './toast-service/toast-service';
+import { Pokemon, PokemonServiceService } from '../../services/pokemon-service/pokemon-service.service';
+import { ToastService } from '../../services/toast-service/toast-service';
 
 @Component({
   selector: 'app-pokemon-item',

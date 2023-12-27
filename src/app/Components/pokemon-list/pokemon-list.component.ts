@@ -1,6 +1,6 @@
 import { Component, Input, TemplateRef, inject, } from '@angular/core';
-import { ToastService } from '../toast-service/toast-service';
-import { Pokemon, PokemonServiceService } from '../../services/pokemon-service.service';
+import { ToastService } from '../../services/toast-service/toast-service';
+import { Pokemon, PokemonServiceService } from '../../services/pokemon-service/pokemon-service.service';
 
 @Component({
   selector: 'app-pokemon-list',
