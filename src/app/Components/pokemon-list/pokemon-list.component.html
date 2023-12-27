@@ -1,21 +1,19 @@
 
 <app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
 
-<div>
-    <h2>Pokemons</h2>
-</div>
+
 
 <div class="row">
     <div class="col-10">
-        <input class="form-control" type="text" (input)="onPokemonChange($event)">        
+        <input class="form-control mt-2 mb-2" type="text" (input)="onPokemonChange($event)">        
     </div>
 
-    <div class="col-2">
-        <button (click)="onAddButtonClick()" [disabled]="!canClickButton" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" height="18" width="16" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg></button>
+    <div class="col-2 mt-2 mb-2">
+        <button  (click)="onAddButtonClick()" [disabled]="!canClickButton" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" height="18" width="16" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg></button>
     </div>
 
     <div *ngIf ="pokemonAdded" class="mt-2 mb-2"> Un pokémon a été ajouté </div>
 </div>
 <ng-container *ngFor ="let pokemon of pokemons; let i = index">
-<app-pokemon-item (deletePokemon)="onDeletePokemon($event, i)" [name]="pokemon"></app-pokemon-item>
+<app-pokemon-item  [pokemon]="pokemon" [isTopPokemon]="false"></app-pokemon-item>
 </ng-container>

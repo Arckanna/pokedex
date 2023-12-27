@@ -1,25 +1,34 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
+import { Pokemon, PokemonServiceService } from '../services/pokemon-service.service';
+import { ToastService } from './toast-service/toast-service';
 
 @Component({
   selector: 'app-pokemon-item',
   templateUrl: './pokemon-item.component.html',
   styleUrls: ['./pokemon-item.component.scss'],
+  providers: []
+
 })
 export class PokemonItemComponent implements OnInit {
   ngOnInit(): void {}
-
-  @Input() name?: string;
+  toastService = inject(ToastService);
+  @Input() pokemon: Pokemon | undefined;
   @Output() deletePokemon = new EventEmitter<string>();
   level = 10;
   sex = Math.random() > 0.5 ? 'male' : 'female';
+  deletedPokemonName?: string;
+  @Input() isTopPokemon?: boolean;
 
-  constructor() {
+  constructor(private pokemonService: PokemonServiceService) {
     
   }
   onDeletePokemon() {
-    this.deletePokemon.emit(this.name);
+    if(!this.pokemon) return;
+    this.pokemonService.deletePokemon(this.pokemon.id-1);
+    this.deletedPokemonName = this.pokemon.name;
+    const toastText = "Le Pokemon " + this.deletedPokemonName + " a été supprimé";
+    this.toastService.show({ toastText, classname: 'bg-warning text-muted', delay: 100000000000 });
+    //this.deletePokemon.emit(this.name);
   }
-  getName() {
-    return this.name;
-  }
+ 
 }
