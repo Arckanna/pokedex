@@ -13,5 +13,5 @@
     </div>
 </div>
 <ng-container *ngFor ="let pokemon of pokemons; let i = index">
-<app-pokemon-item  [pokemon]="pokemon" [isTopPokemon]="false"></app-pokemon-item>
+<app-pokemon-item [pokemonIndex]="i + 1" [pokemon]="pokemon" [isTopPokemon]="false"></app-pokemon-item>
 </ng-container>

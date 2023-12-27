@@ -18,6 +18,7 @@ export class PokemonItemComponent implements OnInit {
   sex = Math.random() > 0.5 ? 'male' : 'female';
   deletedPokemonName?: string;
   @Input() isTopPokemon?: boolean;
+  @Input() pokemonIndex?: number;
 
   constructor(private pokemonService: PokemonServiceService) {
     

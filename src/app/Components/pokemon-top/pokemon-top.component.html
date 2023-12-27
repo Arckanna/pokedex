@@ -1,5 +1,5 @@
 <div class="row mt-2 mb-2">
     <ng-container *ngFor="let pokemon of pokemons; let i = index;">
-        <div *ngIf="i<3"> <app-pokemon-item [pokemon]="pokemon" [isTopPokemon]="true"></app-pokemon-item></div>       
+        <div *ngIf="i<3"> <app-pokemon-item [pokemonIndex]="i + 1" [pokemon]="pokemon" [isTopPokemon]="true"></app-pokemon-item></div>       
     </ng-container>
 </div>
