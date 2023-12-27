@@ -11,8 +11,6 @@ export class PokemonListComponent {
   toastService = inject(ToastService);
   canClickButton = false;
   currentPokemonName = '';
-  currentPokemonSex = '';  
-  pokemonAdded = false;
   pokemons= this.pokemonService.pokemons;
   deletedPokemonName?: string;
   @Input() pokemon?: Pokemon;
@@ -21,7 +19,6 @@ export class PokemonListComponent {
 
   }
   onAddButtonClick(){
-    this.pokemonAdded = true;
     this.pokemonService.addPokemon(this.currentPokemonName, Math.random() > 0.5 ? 'male' : 'female');
     const toastText = "Le Pokemon " + this.currentPokemonName + " a été ajouté";
     this.toastService.show({ toastText, classname: 'bg-info text-muted', delay: 3000 });
@@ -43,12 +40,5 @@ export class PokemonListComponent {
     this.deletedPokemonName = this.pokemon.name;
     const toastText = "Le Pokemon " + this.deletedPokemonName + " a été supprimé";
     this.toastService.show({ toastText, classname: 'bg-warning text-muted', delay: 100000000000 });
-    //this.deletePokemon.emit(this.name);
   }
-  /*onDeletePokemon(name:string, index: number){
-    this.pokemons.splice(index,1);
-    this.deletedPokemonName = name;
-    const toastText = "Le Pokemon " + this.deletedPokemonName + " a été supprimé";
-    this.toastService.show({ toastText, classname: 'bg-warning text-muted', delay: 100000000000 });
-  }*/
 }
