@@ -1,3 +1,5 @@
+import { ApplicationRef } from "@angular/core";
+
 /*import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -8,10 +10,12 @@ export interface Pokemon{
   name: string;
   sex: string;
 }
-export class PokemonServiceService {
 
+export class PokemonServiceService {
   pokemons: Pokemon[] = [];
   deletedPokemonName?: string;
+
+  constructor() { }
 
   addPokemon(pokemonName: string, sex:string){
     this.pokemons.push({      
@@ -23,7 +27,13 @@ export class PokemonServiceService {
 
   deletePokemon(index:number){
     this.pokemons.splice(index,1);   
-
   }
-  constructor() { }
+
+  updatePokemonName(index: number, newName: string){
+    this.pokemons[index - 1].name = newName;
+  }
+
+  updatePokemonGender(index: number, newGender: string){
+    this.pokemons[index - 1].sex = newGender;
+  }
 }

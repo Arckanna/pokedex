@@ -18,14 +18,14 @@ export class PokemonListComponent {
   constructor(private pokemonService: PokemonServiceService ){
 
   }
+
   onAddButtonClick(){
     this.pokemonService.addPokemon(this.currentPokemonName, Math.random() > 0.5 ? 'male' : 'female');
     const toastText = "Le Pokemon " + this.currentPokemonName + " a été ajouté";
     this.toastService.show({ toastText, classname: 'bg-info text-muted', delay: 3000 });
   }
 
-  onPokemonChange(event:Event){
-    console.log('change');
+  onPokemonChange(event:Event){    
     const inputElement = event.target as HTMLInputElement;
     this.currentPokemonName = inputElement?.value.trim();
     if(this.currentPokemonName != ""){
@@ -33,12 +33,5 @@ export class PokemonListComponent {
     } else {
       this.canClickButton = false;
     }
-  }
-  onDeletePokemon() {
-    if(!this.pokemon) return;
-    this.pokemonService.deletePokemon(this.pokemon.id-1);
-    this.deletedPokemonName = this.pokemon.name;
-    const toastText = "Le Pokemon " + this.deletedPokemonName + " a été supprimé";
-    this.toastService.show({ toastText, classname: 'bg-warning text-muted', delay: 100000000000 });
   }
 }

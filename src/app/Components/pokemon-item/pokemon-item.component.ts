@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, inject } from '@angular/core';
 import { Pokemon, PokemonServiceService } from '../../services/pokemon-service/pokemon-service.service';
 import { ToastService } from '../../services/toast-service/toast-service';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-pokemon-item',
@@ -13,9 +14,7 @@ export class PokemonItemComponent implements OnInit {
   ngOnInit(): void {}
   toastService = inject(ToastService);
   @Input() pokemon: Pokemon | undefined;
-  @Output() deletePokemon = new EventEmitter<string>();
-  level = 10;
-  sex = Math.random() > 0.5 ? 'male' : 'female';
+  @Output() deletePokemon = new EventEmitter<string>();  
   deletedPokemonName?: string;
   @Input() isTopPokemon?: boolean;
   @Input() pokemonIndex?: number;
@@ -23,6 +22,7 @@ export class PokemonItemComponent implements OnInit {
   constructor(private pokemonService: PokemonServiceService) {
     
   }
+
   onDeletePokemon() {
     if(!this.pokemon) return;
     this.pokemonService.deletePokemon(this.pokemon.id-1);

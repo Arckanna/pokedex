@@ -11,6 +11,8 @@ import { HighlightBackgroundColorDirective } from './directives/highlight-backgr
 import { ToastsContainer } from "./services/toast-service/toasts-container.component";
 import { PokemonServiceService } from './services/pokemon-service/pokemon-service.service';
 import { PokemonTopComponent } from './Components/pokemon-top/pokemon-top.component';
+import { PokemonFormComponent } from './Components/pokemon-form/pokemon-form.component';
+
 
 @NgModule({
     declarations: [
@@ -18,7 +20,9 @@ import { PokemonTopComponent } from './Components/pokemon-top/pokemon-top.compon
         PokemonItemComponent,
         PokemonListComponent,
         HighlightBackgroundColorDirective,
-        PokemonTopComponent
+        PokemonTopComponent,
+        PokemonFormComponent,
+        
     ],
     providers: [PokemonServiceService],
     bootstrap: [AppComponent],

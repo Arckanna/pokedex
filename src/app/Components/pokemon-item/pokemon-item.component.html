@@ -1,7 +1,7 @@
 <div *ngIf="pokemon" class="p-3 pokemon-{{pokemon.sex}} row" appHightlightBackgroundColor
     [defaultColor]="pokemon.sex==='male'?'blue' :'pink'" [highlightColor]="pokemon.sex === 'male'? 'darkblue' :'purple'">
     <div class="col-1 d-flex align-items-center">{{ pokemonIndex }}</div>
-    <div class="col-9 d-flex align-items-center">{{ pokemon.name }}</div>
+    <div class="col-9 d-flex align-items-center">{{ pokemon.name }} - {{pokemon.sex}}</div>
     <div *ngIf="isTopPokemon===false" class="col-2">
         <Button class="btn btn-primary" (click)="onDeletePokemon()">Supprimer
         </Button>

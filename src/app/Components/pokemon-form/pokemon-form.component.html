@@ -1,0 +1,17 @@
+<h3 class="mt-5 mb-3">Pokémon {{pokemonIndex}}</h3>
+
+<div >
+    <p class="col-10">Nom</p>
+    <input class="form-control col-10 mt-2 mb-2" type="text" [value]="pokemonName" (input)="onNameChange($event)" />        
+</div>
+	<div class="col-10">
+		<div ngbDropdown class="d-inline-block">
+			<button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+				Sexe
+			</button>
+			<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+				<button ngbDropdownItem (click)="onGenderChange('female')" >Femelle</button>
+				<button ngbDropdownItem (click)="onGenderChange('male')">Male</button>				
+			</div>
+		</div>
+	</div>	
