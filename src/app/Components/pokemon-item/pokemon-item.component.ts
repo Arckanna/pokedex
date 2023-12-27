@@ -27,8 +27,7 @@ export class PokemonItemComponent implements OnInit {
     this.pokemonService.deletePokemon(this.pokemon.id-1);
     this.deletedPokemonName = this.pokemon.name;
     const toastText = "Le Pokemon " + this.deletedPokemonName + " a été supprimé";
-    this.toastService.show({ toastText, classname: 'bg-warning text-muted', delay: 100000000000 });
-    //this.deletePokemon.emit(this.name);
+    this.toastService.show({ toastText, classname: 'bg-warning text-muted', delay: 3000 });
   }
  
 }

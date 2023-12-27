@@ -24,7 +24,7 @@ export class PokemonListComponent {
     this.pokemonAdded = true;
     this.pokemonService.addPokemon(this.currentPokemonName, Math.random() > 0.5 ? 'male' : 'female');
     const toastText = "Le Pokemon " + this.currentPokemonName + " a été ajouté";
-    this.toastService.show({ toastText, classname: 'bg-info text-muted', delay: 10000000000 });
+    this.toastService.show({ toastText, classname: 'bg-info text-muted', delay: 3000 });
   }
 
   onPokemonChange(event:Event){
